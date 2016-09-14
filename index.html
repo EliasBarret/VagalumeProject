@@ -1,11 +1,17 @@
-<! DOCTYPE HTML>
-<html>
+<html ng-app="helloworld">
 <head>
 	<title>"Hello, World"</title>
+	<script src="angular.js"></script>
+	<script>
+		//cria o modulo
+		angular.module("helloworld", []);
+		// Busca o Modulo e injeta o scope
+		angular.module("helloworld").controller("helloworldCtrl", function ($scope) {
+			$scope.message = " hello world !";
+		});
+	</script>
 </head>
-<body>
-	<h1>
-		Hello World
-	</h1>
+<body ng-controller="helloworldCtrl">
+		{{message}}
 </body>
-</html>
+</html> 
