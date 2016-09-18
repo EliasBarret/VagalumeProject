@@ -22,12 +22,12 @@
 			vertical-align: middle;
 			display: flex;
 		}
+		.iconcenter{
+			display: flex;
+			align: center;
+		}
 		.buttonAlinhamento{
-			
-		
 			vertical-align: bottom;
-
-
 		}
 		.alinhamentotxt{
 			text-align: right;
@@ -68,16 +68,13 @@
 				<!--Foto Perfil -->
 				<div class="avatar">	
 					<img ng-src="{{timelines.user.picture}}"/>
-
-					<!--<button type="button"> oi</button>-->
-					<div class="hover" >
-							<div class="icon-twitter"></div>								
-					</div>
+					<div></div>					
 					<!-- Alinhamento Botão -->
-					<div class="buttonAlinhamento">
-						<button type="button"> Perfil </button>
-					</div>
-
+						<div class="buttonAlinhamento">
+							<button type="button" style="width:93;height:30; margin-top: 10px"> Perfil </button>
+								<!--{{timelines.user.location}}
+								{{timelines.user.bio}}-->
+						</div>
 				</div>
 
 
@@ -111,6 +108,8 @@
 							<span class="linha"> 
 								
 								<div class="icon-heart action"> {{timelines.likes}} </div>
+
+								<div class="icon-user"> {{ timelines.user.friends }}</div>
 							
 								<div class="alinhamentotxt">
 									<div class="icon-mail-reply action"></div>
