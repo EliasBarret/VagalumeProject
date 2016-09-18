@@ -22,6 +22,13 @@
 			vertical-align: middle;
 			display: flex;
 		}
+		.buttonAlinhamento{
+			
+		
+			vertical-align: bottom;
+
+
+		}
 		.alinhamentotxt{
 			text-align: right;
 			align: right;
@@ -31,7 +38,7 @@
 			margin-left:auto; 
 			margin-bottom:5px;
 		}
-
+		
 	</style>
 
 </head>
@@ -59,13 +66,20 @@
 		<ul>
 			<li>
 				<!--Foto Perfil -->
-				<div class="avatar" ng-click="{{message}}">	
+				<div class="avatar">	
 					<img ng-src="{{timelines.user.picture}}"/>
 
+					<!--<button type="button"> oi</button>-->
 					<div class="hover" >
-						<div class="icon-twitter" ></div>
+							<div class="icon-twitter"></div>								
 					</div>
+					<!-- Alinhamento Botão -->
+					<div class="buttonAlinhamento">
+						<button type="button"> Perfil </button>
+					</div>
+
 				</div>
+
 
 				<!-- Caixa de Texto -->
 				<div  class="bubble-container">
@@ -73,6 +87,8 @@
 						<div class="retweet">
 							<div class="icon-retweet"></div>
 						</div>
+						
+
 						<span class="linha2">
 							<div><h2>@{{timelines.user.username}}</h2></div>
 							<div class="alinhamentotxt">
@@ -87,7 +103,6 @@
 							
 							<!-- Exibir os dados abaixo quando der um click na foto de perfil do usuario
 
-							{{timelines.user.id}}
 							{{timelines.user.location}}
 							{{timelines.user.bio}}
 							{{timelines.user.friends}}-->
@@ -96,18 +111,18 @@
 							<span class="linha"> 
 								
 								<div class="icon-heart action"> {{timelines.likes}} </div>
-								
+							
 								<div class="alinhamentotxt">
 									<div class="icon-mail-reply action"></div>
 									<div class="icon-retweet action"></div>
 									<div class="icon-star"></div>
-								</div>
-								
+								</div>	
 							</span>
 						</div>
 						<div class="arrow"></div>
-					</div>		
+					</div>
 				</li>
+		
 			</ul>
 		</body>
 </html>
