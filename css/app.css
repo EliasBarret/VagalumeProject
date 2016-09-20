@@ -1,0 +1,23 @@
+.line1{
+	display: flex;
+}
+.line2{
+	vertical-align: middle;
+	display: flex;
+}
+.iconCenter{
+	display: flex;
+	align: center;
+}
+.buttonAlignment{
+	vertical-align: bottom;
+}
+.textAlignment{
+	text-align: right;
+	align: right;
+	vertical-align: middle;
+	float:right; 
+	margin-right:0; 
+	margin-left:auto; 
+	margin-bottom:5px;
+}
