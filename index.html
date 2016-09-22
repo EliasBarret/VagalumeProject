@@ -7,7 +7,9 @@
 
 	<script src="lib\angular\angular.js"></script>
 	<script src="lib\angular\angular.min.js" type="text/javascript" ></script>
+	<script src="lib\bootstrap\bootstrap.min.js"></script>
 	<script src="js\app.js" type="text/javascript"></script>
+	<!--<script  src="js\filters\dataFilter.js" type="text/javascript"></script> -->
 	
 	<link rel="stylesheet" type="text/css" href="css\app.css">
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
@@ -16,8 +18,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	
-
 
 </head>
 	<body ng-controller="twitterctrl">
@@ -25,7 +27,7 @@
 		<!-- Organizar a navbar na cor do twitter e centralizar o nome twitter e colocar um icone do twitter -->
 
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container-fluid">
+			<div class="container-fluid" style="">
 				<div class="navbar-header">
 					<a class="navbar-brand"  href="#">
 						<img alt="TWITTER" src="...">
@@ -34,11 +36,7 @@
 			</div>
 		</nav>
 
-		<!-- organizar o espaçamento entre o navbar fixo e a timeline do twitter -->
-		<li></li>
-		<li></li>
-		<li></li>
-
+		<div style="margin-top:60px"></div>
 
 		<div class="timeline" ng-repeat="timelines in list">
 			<ul>
@@ -46,19 +44,15 @@
 					<!--Foto Perfil -->
 					<div class="avatar">	
 						<img ng-src="{{timelines.user.picture}}"/>
-						<div></div>					
-						<!-- Alinhamento Botão -->
-						<div class="buttonAlignment">
-							<button type="button" style="width:93;height:30; margin-top: 10px"> Perfil </button>
-									<!--{{timelines.user.location}}
-									{{timelines.user.bio}}-->
-								</div>
-							</div>
+						<div>
+						<!--<a href="" ng-click="myFunc()" data-toggle="modal">Nome</a>-->
+						</div>
+					</div>
 
 
 							<!-- Caixa de Texto -->
 							<div  class="bubble-container">
-								<div class="bubble" style="overflow-y: auto; height: 210px">
+								<div class="bubble" ng-click="myFunc()">
 									<div class="retweet">
 										<div class="icon-retweet"></div>
 									</div>
@@ -73,28 +67,28 @@
 									</span>
 									<!-- organizar o format da data -->
 
-									<p align="right">{{ timelines.date | date:'dd/MM/yyyy'}}<p>  
+									<p align="right">{{ timelines.date}}<p>  
 										<p><justify><h5>{{timelines.content}}</h5></justify></p>
-										
-								<!-- Exibir os dados abaixo quando der um click na foto de perfil do usuario
-
-								{{timelines.user.location}}
-								{{timelines.user.bio}}
-								{{timelines.user.friends}}-->
-
+								
+								
+								<div ng-show="showMe">
+								  	<p>{{timelines.user.location}}</p>
+								  	<p><justify><h5>{{timelines.user.bio}}</h5></justify></p>
+								</div> 
+								
 								<!--icones do twitter-->
-								<span class="line1"> 
-									
+								<span class="line1">
 									<div class="icon-heart action"> {{timelines.likes}} </div>
-
 									<div class="icon-user"> {{ timelines.user.friends }}</div>
-									
+
+
 									<div class="textAlignment">
 										<div class="icon-mail-reply action"></div>
 										<div class="icon-retweet action"></div>
 										<div class="icon-star"></div>
-									</div>	
+									</div>
 								</span>
+								
 							</div>
 						<div class="arrow"></div>
 					</div>

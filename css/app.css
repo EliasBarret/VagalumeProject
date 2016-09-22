@@ -12,6 +12,11 @@
 .buttonAlignment{
 	vertical-align: bottom;
 }
+.buttonModal{
+	width:93;
+	height:30; 
+	margin-top: 10px
+}
 .textAlignment{
 	text-align: right;
 	align: right;
