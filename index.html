@@ -1,93 +1,91 @@
 <html ng-app="vagalumetwitter">
 
 
-<head lang="pt-br">
-	<meta charset="UTF-8">
-	<title>Twitter Vagalume</title>
+	<head lang="pt-br">
+		<meta charset="UTF-8">
+		
+		<title>Twitter Vagalume</title>
 
-	<script src="lib\angular\angular.js"></script>
-	<script src="lib\angular\angular.min.js" type="text/javascript" ></script>
-	<script src="lib\bootstrap\bootstrap.min.js"></script>
-	<script src="js\app.js" type="text/javascript"></script>
-	<script  src="js\filters\dataFilter.js" type="text/javascript"></script>
+		<script src="lib\angular\angular.js"></script>
+		<script src="lib\angular\angular.min.js" type="text/javascript" ></script>
+		<script src="lib\bootstrap\bootstrap.min.js"></script>
+		<script src="js\app.js" type="text/javascript"></script>
+		<script src="js\filters\dataFilter.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css\app.css">
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="lib/style/styles.css">
+		
+		<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+		
+	</head>
+		
 	
-	<link rel="stylesheet" type="text/css" href="css\app.css">
-	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="lib/style/styles.css">
+		<body ng-controller="twitterctrl">
 
-	<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	
-
-</head>
-	<body ng-controller="twitterctrl">
-
-		<!-- Organizar a navbar na cor do twitter e centralizar o nome twitter e colocar um icone do twitter -->
-
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container-fluid" style="">
-				<div class="navbar-header">
-					<a class="navbar-brand"  href="#">
-						<img alt="TWITTER" src="...">
-					</a>
-				</div>
-			</div>
-		</nav>
-
-		<div style="margin-top:60px"></div>
-
-		<div class="timeline" ng-repeat="timelines in list" >
-			<ul>
-				<li>
-					<!--Foto Perfil -->
-					<div class="avatar">	
-						<img ng-src="{{timelines.user.picture}}"/>
-						<div></div>
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<div class="container-fluid" style="">
+					<div class="navbar-header">
+						<a class="navbar-brand"  href="#">
+							<img alt="TWITTER" src="...">
+						</a>
 					</div>
+				</div>
+			</nav>
+
+			<div style="margin-top:60px"></div>
+
+			<div class="timeline" ng-repeat="timelines in list" >
+				<ul>
+					<li>
+
+						<div class="avatar">	
+							<img ng-src="{{timelines.user.picture}}"/>
+							<div></div>
+						</div>
 
 
-							<!-- Caixa de Texto -->
-							<div  class="bubble-container">
-								<div class="bubble" ng-click="myFunc()">
-									<div class="retweet">
-										<div class="icon-retweet"></div>
-									</div>
-									
-									<span class="line2">
-										<div><h2>@{{timelines.user.username}}</h2></div>
-										<div class="textAlignment">
-											<div><h6>{{timelines.user.id}}</h6></div>
-										</div>
-									</span>
-									
-									<!-- organizar o format da data -->
-									<p align="right">{{ timelines.date | datefun}}<p> 
-									<!--<p align="right">{{ dat2 | datefun}}<p> --> 
-									<p><justify><h5>{{timelines.content}}</h5></justify></p>
-								
-								
-									<div ng-show="showMe">
-									  	<p>{{timelines.user.location}}</p>
-									  	<p><justify><h5>{{timelines.user.bio}}</h5></justify></p>
-									</div> 
-									
-									<!--icones do twitter-->
-									<span class="line1">
-										<div class="icon-heart action"> {{timelines.likes}} </div>
-										<div class="icon-user"> {{ timelines.user.friends }}</div>
-
-									<div class="textAlignment">
-										<div class="icon-mail-reply action"></div>
-										<div class="icon-retweet action"></div>
-										<div class="icon-star"></div>
-									</div>
-									</span>
+						
+						<div  class="bubble-container">
+							<div class="bubble" ng-click="myFunc()">
+								<div class="retweet">
+									<div class="icon-retweet"></div>
 								</div>
-									<div class="arrow"></div>
+								
+								<span class="line2">
+									<div><h2>@{{timelines.user.username}}</h2></div>
+									<div class="textAlignment">
+										<div><h6>{{timelines.user.id}}</h6></div>
+									</div>
+								</span>
+								
+								<p align="right">{{ timelines.date | datefun}}<p> 
+								<p><justify><h5>{{timelines.content}}</h5></justify></p>
+							
+								<div ng-show="showMe">
+								  	<p><justify><h5>{{timelines.user.bio}}</h5></justify></p>
+								  	<p align="right">{{timelines.user.location}}</p>
+								</div> 
+								
+								<!--icones do twitter-->
+								<span class="line1">
+									<div class="icon-heart action"> {{timelines.likes}} </div>
+									<div class="icon-user"> {{ timelines.user.friends }}</div>
+
+								<div class="textAlignment">
+									<div class="icon-mail-reply action"></div>
+									<div class="icon-retweet action"></div>
+									<div class="icon-star"></div>
+								</div>
+								</span>
 							</div>
+								<div class="arrow"></div>
+						</div>
 					</li>
 				</ul>
+			</div>
 		</body>
 </html>
